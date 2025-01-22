@@ -30,6 +30,15 @@ function donateMoney(card){
         <p class="font-light text-base text-color-txt-secondary">Date : ${new Date()}</p>
     `
     history.appendChild(div);
+
+    // Update Local Storages
+    const donatedPlace = previousDonationElement.id;
+    console.log(donatedPlace);
+    sessionStorage.setItem(donatedPlace, totalDonation);
+
+    sessionStorage.setItem('available-balance', newBalance);
+
+
     return;
 }
 

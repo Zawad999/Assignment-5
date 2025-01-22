@@ -178,5 +178,30 @@
     <script src="./js/feature.js"></script>
     <script src="./js/utility.js"></script>
     <script src="./js/donate.js"></script>
+    <script>
+        const balanceStorage = sessionStorage.getItem('available-balance');
+        if(balanceStorage != null){
+            document.getElementById('available-balance').innerText = balanceStorage;
+        }
+        else{
+            sessionStorage.setItem('available-balance', document.getElementById('available-balance').innerText);
+        }
+
+        const donatedList = document.querySelectorAll('.donated');
+        console.log(donatedList);
+        for(let donated of donatedList){
+            donatedPlace = donated.id;
+            const donatedStorage = sessionStorage.getItem(donatedPlace);
+            if(donatedStorage != null){
+                donated.innerText = donatedStorage;
+            }
+        }
+        
+       
+        document.getElementById('btn-blog').addEventListener('click', function(){
+
+            window.location.href = './blog.html';
+        })
+    </script>
 </body>
 </html>

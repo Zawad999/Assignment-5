@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                'btn-color': 'rgb(180, 244, 97)',
+                'color-txt-secondary': 'rgba(17, 17, 17, 0.70)',
+                'banner-btn-border': 'rgba(17, 17, 17, 0.30)',
+                'color-bg': 'rgba(249, 247, 243, 1.00)',
+                'custom-gr-bg': 'rgba(17, 17, 17, 0.05)',
+            }
+            }
+          }
+        }
+    </script>
+    <style>
+        .font-lexend{
+            font-family: "Lexend", serif;
+        }
+
+        html{
+            font-size: 1.111vw;
+        }
+    </style>
+    <title>Donation Page</title>
+</head>
+<body class="font-lexend bg-color-bg">
+    <header>
+        <!-- Nav Bar section -->
+        <nav class="py-6 px-32 mb-10">
+            <div class="navbar p-0 m-0">
+                <div class="navbar-start">
+                    <button onclick="window.location.href='./index.html'" id="btn-home" class="px-8 py-3 bg-btn-color rounded-lg text-xl font-semibold">Home</button>
+                </div>
+                <div class="navbar-center flex gap-4">
+                    <img src="./assets/logo.png" alt="" class="h-12 w-12">
+                    <h2 class="text-xl font-semibold">Donate Bangladesh</h2>
+                </div>
+                <div class="navbar-end flex gap-3">
+                    <img src="./assets/coin.png" alt="" class="lg:h-7 w-7">
+                    <div id="available-balance" class="text-color-txt-secondary font-medium text-xl">5500 BDT</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="py-20 px-36 bg-white">
+       <!-- FAQ Section -->
+       <div>
+        <h1 class="text-5xl font-bold mb-8">Important FAQ</h1>
+        <div class="join join-vertical w-full">
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" checked="checked" />
+                <div class="collapse-title text-xl font-medium">
+                    What is the Document Object Model (DOM)?
+                </div>
+                <div class="collapse-content">
+                    <p>The Document Object Model (DOM) is a programming interface that represents the structure of an HTML or XML document as a tree of objects. It allows developers to interact with and manipulate the content, structure, and style of a web page dynamically.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">
+                    How do you select an element from the DOM?
+                </div>
+                <div class="collapse-content">
+                    <p>You can select an element from the DOM using methods like getElementById, querySelector, querySelectorAll, getElementsByClassName, or getElementsByTagName.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">
+                    What is event delegation in the context of the DOM, and why is it useful?
+                </div>
+                <div class="collapse-content">
+                    <p>Event delegation is a technique where a single event listener is added to a parent element to handle events for its child elements. It works through event bubbling and is useful for managing events efficiently, especially when elements are added dynamically.</p>
+                </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div class="collapse-title text-xl font-medium">
+                    How do you manipulate an element's attributes and styles using the DOM?
+                </div>
+                <div class="collapse-content">
+                    <p>You can manipulate an element's attributes using methods like setAttribute and getAttribute or by directly modifying properties like id or className. To change styles, use the style property, such as setting color or fontSize.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </main>
+      
+    <footer class="h-36">
+        
+    </footer>
+    
+    <script>
+        const availableBalance = sessionStorage.getItem('available-balance');
+        document.getElementById('available-balance').innerText = availableBalance;
+    </script>
+  </body>
+</html>
