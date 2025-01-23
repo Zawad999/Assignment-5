@@ -5,11 +5,11 @@ function donateMoney(card){
     const availableBalance = parseFloat(document.getElementById('available-balance').innerText);
 
     if(isNaN(donateAmount)||donateAmount<0){
-        alert("Invalid Number");
+        alert("Please Input a Valid Number");
         return;
     }
     if(donateAmount>availableBalance){
-        alert("insufficient Balance");
+        alert("Insufficient Balance!!");
         return ;
     }
     const previousDonationElement = card.querySelector('.donated');
@@ -20,6 +20,9 @@ function donateMoney(card){
     const newBalance = (availableBalance-donateAmount).toFixed(2);
     document.getElementById('available-balance').innerText = newBalance;
     
+    // Trigger Successfull Transaction Alert
+    document.getElementById('my_modal_1').showModal();
+
     // add to history
     const donatedFor = card.querySelector('.donated-for').innerText;
     let history = document.getElementById('history-page');
@@ -31,10 +34,10 @@ function donateMoney(card){
     `
     history.appendChild(div);
 
-    //update shared storages of history page
+    //update sesssion storages of history page
     sessionStorage.setItem('history-page', history.innerHTML);
 
-    // Update shared Storages of balance
+    // Update session Storages of balance
     const donatedPlace = previousDonationElement.id;
     sessionStorage.setItem(donatedPlace, totalDonation);
     sessionStorage.setItem('available-balance', newBalance);
