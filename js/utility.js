@@ -31,11 +31,12 @@ function donateMoney(card){
     `
     history.appendChild(div);
 
-    // Update Local Storages
-    const donatedPlace = previousDonationElement.id;
-    console.log(donatedPlace);
-    sessionStorage.setItem(donatedPlace, totalDonation);
+    //update shared storages of history page
+    sessionStorage.setItem('history-page', history.innerHTML);
 
+    // Update shared Storages of balance
+    const donatedPlace = previousDonationElement.id;
+    sessionStorage.setItem(donatedPlace, totalDonation);
     sessionStorage.setItem('available-balance', newBalance);
 
 

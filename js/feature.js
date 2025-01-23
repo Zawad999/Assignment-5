@@ -2,7 +2,11 @@ const actionBtnContainer = document.querySelectorAll('.action-btn');
 
 for(let btn of actionBtnContainer){
     btn.addEventListener('click', function(event){
-        swapBtnStyle();
-        togglePage(event.target);
+        const clickedBtn = event.target;
+        if(clickedBtn.classList.contains('current') == false){
+            swapBtnStyle();
+            togglePage(event.target);
+        }
+        
     })
 }

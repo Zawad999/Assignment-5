@@ -17,7 +17,7 @@
                 'btn-color': 'rgb(180, 244, 97)',
                 'color-txt-secondary': 'rgba(17, 17, 17, 0.70)',
                 'banner-btn-border': 'rgba(17, 17, 17, 0.30)',
-                'color-bg': 'rgba(249, 247, 243, .99)',
+                'color-bg': 'rgba(249, 247, 243, .98)',
                 'custom-gr-bg': 'rgba(17, 17, 17, 0.05)',
             }
             }
@@ -38,7 +38,7 @@
 <body class="font-lexend">
     <header class="sticky top-0 z-10">
         <!-- Nav Bar section -->
-        <nav class="bg-color-bg py-6 px-32 pb-10">
+        <nav class="bg-color-bg py-6 px-32">
             <div class="navbar p-0 m-0">
                 <div class="navbar-start">
                     <button id="btn-blog" class="px-8 py-3 bg-btn-color rounded-lg text-xl font-semibold">Blog</button>
@@ -54,8 +54,8 @@
             </div>
         </nav>
         <!-- Action Buttons -->
-        <div id="action-btn-container" class= "bg-white bg-opacity-[.99] flex justify-center items-center gap-4 pb-8 pt-20">
-            <button id="btn-donation" class="action-btn px-8 py-3 bg-btn-color rounded-lg text-xl font-semibold">Donation</button>
+        <div id="action-btn-container" class= "bg-white bg-opacity-[.98] flex justify-center items-center gap-4 pb-8 pt-8">
+            <button id="btn-donation" class="current action-btn px-8 py-3 bg-btn-color rounded-lg text-xl font-semibold">Donation</button>
             <button id="btn-history" class="action-btn px-[calc(2rem-0.125rem)] py-[calc(0.75rem-0.125rem)] border-2 bg-transparent rounded-lg text-xl font-medium text-color-txt-secondary">History</button>
         </div>
     </header>
@@ -179,6 +179,12 @@
     <script src="./js/utility.js"></script>
     <script src="./js/donate.js"></script>
     <script>
+        // Updating History page using session storage when page is visited from another page 
+        const historyInnerHtml = sessionStorage.getItem('history-page');
+        if(historyInnerHtml != null){
+            document.getElementById('history-page').innerHTML = historyInnerHtml;
+        }
+        // Updating Storage Balance using session storage when page is visited from another page 
         const balanceStorage = sessionStorage.getItem('available-balance');
         if(balanceStorage != null){
             document.getElementById('available-balance').innerText = balanceStorage;
