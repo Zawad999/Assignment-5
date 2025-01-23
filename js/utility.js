@@ -21,7 +21,10 @@ function donateMoney(card){
     document.getElementById('available-balance').innerText = newBalance;
     
     // Trigger Successfull Transaction Alert
-    document.getElementById('my_modal_1').showModal();
+    const modal = document.getElementById('my_modal_1');
+    if(!modal.showModal()){
+        dialogPolyfill.registerDialog(modal);
+    }
 
     // add to history
     const donatedFor = card.querySelector('.donated-for').innerText;
